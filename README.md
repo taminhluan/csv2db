@@ -9,6 +9,9 @@ New features
 Use pip install -r requirements.txt
 ===========
 
+Issues
+[ ] Truncage float type if empty string
+===========
 
 What is it for?
 ===============

@@ -82,6 +82,9 @@ def csv2db(FILE_NAME, CSV_PARAM={}, CONNECTION_STRING='sqlite:///db.db', TABLE_S
                     'ref_table':reference_table, 'ref_column':reference_column,
                     'real_column':column})
             if isinstance(column_list[column]['preprocess'], collections.Callable):
+                print('1'*100)
+                print(column_list[column]['preprocess'])
+                print('2'*100)
                 table_preprocess_dict[table_name][column] = column_list[column]['preprocess']
 
     engine = create_engine(CONNECTION_STRING, encoding='utf8', convert_unicode=True, echo=False) 
@@ -99,12 +102,15 @@ def csv2db(FILE_NAME, CSV_PARAM={}, CONNECTION_STRING='sqlite:///db.db', TABLE_S
             for field in field_list:
                 for i in xrange(len(csv_row)):
                     caption = csv_caption[i]
-                    if caption == caption_dict[field] and caption != '': 
+                    if caption == caption_dict[field] and caption != '':
                         if csv_row[i] == '':
                             data[field] = None
                         else:
                             if field in preprocess_dict:
+                                print('&'*100)
                                 data[field] = preprocess_dict[field](csv_row[i])
+                                print(data[field])
+                                print('&'*100)
                             else:
                                 data[field] = csv_row[i]
                             all_is_empty = False  
