@@ -3,6 +3,13 @@ What is it?
 
 csv2db.py is a simple program to import data into any database platform (which is supported by sqlalchemy).
 
+New features
+
+[x] requirements
+Use pip install -r requirements.txt
+===========
+
+
 What is it for?
 ===============
 
