@@ -154,7 +154,10 @@ def csv2db(FILE_NAME, CSV_PARAM={}, CONNECTION_STRING='sqlite:///db.db', TABLE_S
             if field_name != '':
                 selected_field_name += ', '+field_name
 
-            sql_select_by_unique_field = 'SELECT '+selected_field_name+' FROM '+table_name+' WHERE '+where_by_unique_field
+            if len(where_by_unique_field_list) > 0:
+                sql_select_by_unique_field = 'SELECT '+selected_field_name+' FROM '+table_name + ' WHERE '+where_by_unique_field
+            else:
+                sql_select_by_unique_field = 'SELECT '+selected_field_name+' FROM '+table_name + ' WHERE false'
             sql_select_by_primary_key = 'SELECT '+selected_field_name+' FROM '+table_name+' WHERE '+where_by_primary_key
             sql_insert = 'INSERT INTO '+table_name+'('+field_name+') VALUES('+field_value+')'
             sql_update = 'UPDATE '+table_name+' SET '+field_set+' WHERE '+where_by_primary_key
