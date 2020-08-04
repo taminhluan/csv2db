@@ -1,4 +1,11 @@
-What is it?
+# SIS CSV2DB
+
+Code import dữ liệu cho dự án SIS
+
+Từ flat file csv => data with relationship in RMDBMS
+
+
+## What is it?
 ===========
 
 csv2db.py is a simple program to import data into any database platform (which is supported by sqlalchemy).
